@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# class for assigning players
+# class for assigning the players
 class Player
   attr_reader :name
 
@@ -10,7 +10,7 @@ class Player
   end
 end
 
-# class for designing tic tac toe board
+# class for designing the tic tac toe board
 class Board
   def initialize
     @board = Array.new(9, ' ')
@@ -29,7 +29,7 @@ class Board
   end
 end
 
-# tic tac toe game class
+# class that include all the game mechanics
 class Game
   def move(board, index, token) end
 
@@ -52,7 +52,7 @@ class Game
     end
   end
 
-  def win?(board)
+  def win?(_board)
     [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]] # winning combos
   end
 
@@ -64,6 +64,12 @@ class Game
 
   def winner(board) end
 
-  def play(board) end
+  def play(board)
+    move(board, index, token) until over?(board) == true
+    if win == true 
+      puts "Congratulations #{player}"
+    else
+      puts "It's a draw"
+    end
+  end
 end
-
