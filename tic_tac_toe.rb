@@ -4,7 +4,7 @@ class Board
     @board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
   end
 
-  def display_board(board)
+  def board_display(board)
     puts "#{board[0]} | #{board[1]} | #{board[2]}"
     puts '_________'
     puts "#{board[3]} | #{board[4]} | #{board[5]}"
@@ -13,5 +13,6 @@ class Board
   end
 end
 
+board_display(board)
 
   
