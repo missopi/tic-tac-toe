@@ -11,9 +11,19 @@ class Board
     puts '_________'
     puts "#{board[6]} | #{board[7]} | #{board[8]}"
   end
-
 end
 
-display_board(board)
+class Player
+  attr_accessor :name
+  attr_reader :token
+
+  def initialise(name)
+    @name = name
+    @token = token
+  end
+end
+
+
+
 
   
