@@ -12,8 +12,6 @@ class Board
     puts "#{board[6]} | #{board[7]} | #{board[8]}"
   end
 
-  WIN_COMBOS = [[0, 1, 2], [3, 4, 5],[6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]]
-
 end
 
 class Player
@@ -24,6 +22,12 @@ class Player
     @name = name
     @token = token
   end
+end
+
+class Game
+
+WIN_COMBOS = [[0, 1, 2], [3, 4, 5],[6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]]
+
 end
 
 
