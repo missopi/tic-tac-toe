@@ -1,7 +1,7 @@
 
 class Board
-  def initialise
-    @board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
+  def initialize
+    @board = Array.new(9, ' ')
   end
 
   def display_board(board)
@@ -15,10 +15,9 @@ class Board
 end
 
 class Player
-  attr_accessor :name
-  attr_reader :token
+  attr_reader :name :token
 
-  def initialise(name)
+  def initialize(input)
     @name = name
     @token = token
   end
