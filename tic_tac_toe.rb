@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+# class for assigning players
+class Player
+  attr_reader :name
+
+  def initialize(name)
+    @name = name
+    @token = token
+  end
+end
+
 # class for designing tic tac toe board
 class Board
   def initialize
@@ -16,16 +26,6 @@ class Board
 
   def current_board(board)
     display_board(board)
-  end
-end
-
-# class for assigning players
-class Player
-  attr_reader :name
-
-  def initialize(name)
-    @name = name
-    @token = token
   end
 end
 
