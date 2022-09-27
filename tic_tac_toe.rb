@@ -1,7 +1,7 @@
 
 class Board
   def initialise
-    @board = ['','','','','','','','','']
+    @board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
   end
 
   def display_board(board)
@@ -12,4 +12,6 @@ class Board
     puts row_3 = ['#{board[6]}','|', '#{board[7]}', '|', '#{board[8]}']
   end
 end
+
+
   
