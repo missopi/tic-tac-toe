@@ -32,10 +32,16 @@ end
 # tic tac toe game
 class Game
   def move(board, index, token)
-    board[index] = token
+    board[index] = token if position_taken == false
   end
 
-  def position_taken?(board, index, token) end
+  def position_taken?(board, index, token)
+    if board[index] == nil? || board[index] == ' '
+      false
+    elsif board[index] == token
+      true
+    end
+  end
 
   def valid_move(board, index) end
 
@@ -67,7 +73,7 @@ class Game
   def winner(board) end
 
   def play(board)
-    move(board, index, token) until over?(board) == true
+    move(board, index, token) until over == true
     if win == true
       puts "Congratulations #{player}"
     else
