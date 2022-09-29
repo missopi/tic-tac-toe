@@ -15,7 +15,7 @@ class Player
   end
 
   def token_attributed(token)
-    "#{name}, you will be playing as #{token}."
+    puts "#{name}, you will be playing as #{token}."
   end
 end
 
@@ -37,9 +37,6 @@ end
 # tic tac toe game
 class Game
   def move(board, index, token)
-    input = gets.chomp
-    return unless board[index] != (input.to_i - 1)
-
     board[index] = token if position_taken == false
     display_board
   end
