@@ -2,19 +2,19 @@
 
 # class for assigning the players
 class Player
-  attr_reader :name
+  attr_reader :name, :token
 
-  def initialize(name)
+  def initialize(name, token)
     @name = name
     @token = token
   end
 
   def self.name
     puts 'Please enter your name'
-    @name = gets.chomp
+    self.name = gets.chomp
   end
 
-  def token_attributed(token)
+  def self.token
     puts "#{name}, you will be playing as #{token}."
   end
 end
@@ -52,7 +52,7 @@ class Game
 
   def turn_count(board) end
 
-  def current_player(board) end
+  def current_player() end
 
   def turn
     puts 'Please make your choice of move from 1-9'
