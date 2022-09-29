@@ -23,27 +23,16 @@ class Board
     puts '_________'
     puts "#{board[6]} | #{board[7]} | #{board[8]}"
   end
-
-  def update_board(board)
-    input = gets.chomp
-    input_int = input.to_i
-    board[0] = 'X' if input_int == 1
-    board[1] = 'X' if input_int == 2
-    board[2] = 'X' if input_int == 3
-    board[3] = 'X' if input_int == 4
-    board[4] = 'X' if input_int == 5
-    board[5] = 'X' if input_int == 6
-    board[6] = 'X' if input_int == 7
-    board[7] = 'X' if input_int == 8
-    board[8] = 'X' if input_int == 9
-    display_board
-  end
 end
 
 # tic tac toe game
 class Game
   def move(board, index, token)
+    input = gets.chomp
+    return unless board[index] != (input.to_i - 1)
+
     board[index] = token if position_taken == false
+    display_board
   end
 
   def position_taken?(board, index, token)
