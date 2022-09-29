@@ -14,16 +14,21 @@ class Player
     name = gets.chomp
     puts "#{name.capitalize!}, you will be playing as #{token}."
   end
-
 end
+
+Player.create_player
+Player.create_player
 
 # class for designing the tic tac toe board
 class Board
-  def initialize
-    @board = Array.new(9, ' ')
+  attr_accessor :board
+
+  def initialize(board)
+    @board = board
   end
 
-  def display_board(board)
+  def self.display_board
+    board = Array.new(9, ' ')
     puts "#{board[0]} | #{board[1]} | #{board[2]}"
     puts '_________'
     puts "#{board[3]} | #{board[4]} | #{board[5]}"
@@ -31,6 +36,8 @@ class Board
     puts "#{board[6]} | #{board[7]} | #{board[8]}"
   end
 end
+
+Board.display_board
 
 # tic tac toe game
 class Game
@@ -53,7 +60,7 @@ class Game
   def current_player() end
 
   def turn
-    puts 'Please make your choice of move from 1-9'
+    puts "#{name}, please make your choice of move from 1-9"
     input = gets.chomp.to_i
     if (input - 1) == valid_move(index)
       move
