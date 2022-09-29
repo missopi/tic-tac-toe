@@ -9,14 +9,12 @@ class Player
     @token = token
   end
 
-  def self.name
+  def self.create_player
     puts 'Please enter your name'
-    self.name = gets.chomp
+    name = gets.chomp
+    puts "#{name.capitalize!}, you will be playing as #{token}."
   end
 
-  def self.token
-    puts "#{name}, you will be playing as #{token}."
-  end
 end
 
 # class for designing the tic tac toe board
