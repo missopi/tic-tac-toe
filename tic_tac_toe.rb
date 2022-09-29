@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+puts ' '
+puts 'Welcome to Tic Tac Toe!'
+puts ' '
+
 # class for assigning the players
 class Player
   attr_reader :name, :token
@@ -9,15 +13,16 @@ class Player
     @token = token
   end
 
-  def self.create_player
+  def self.create_player(token)
     puts 'Please enter your name'
     name = gets.chomp
     puts "#{name.capitalize!}, you will be playing as #{token}."
+    puts ' '
   end
 end
 
-Player.create_player
-Player.create_player
+Player.create_player('X')
+Player.create_player('O')
 
 # class for designing the tic tac toe board
 class Board
