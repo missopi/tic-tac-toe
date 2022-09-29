@@ -36,7 +36,7 @@ class Board
     board[6] = 'X' if input_int == 7
     board[7] = 'X' if input_int == 8
     board[8] = 'X' if input_int == 9
-    display_board(board)
+    display_board
   end
 end
 
@@ -65,7 +65,7 @@ class Game
     input = gets.chomp.to_i
     if (input - 1) == valid_move(index)
       move
-      current_board
+      update_board
     else
       puts 'Please choose a valid number as your move'
     end
