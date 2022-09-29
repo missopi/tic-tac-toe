@@ -15,7 +15,7 @@ class Player
   end
 
   def token_attributed(token)
-    "#{player}, you will be playing as #{token}."
+    "#{name}, you will be playing as #{token}."
   end
 end
 
