@@ -42,14 +42,13 @@ class Game
   end
 
   def position_taken?(board, index, token)
-    if board[index] == nil? || board[index] == ' '
-      false
-    elsif board[index] == token
-      true
-    end
+    true if board[index] == token
   end
 
-  def valid_move(board, index) end
+  def valid_move(board, index)
+    true if position_taken == false
+    board[index]
+  end
 
   def turn_count(board) end
 
