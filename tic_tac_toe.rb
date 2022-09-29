@@ -24,7 +24,18 @@ class Board
     puts "#{board[6]} | #{board[7]} | #{board[8]}"
   end
 
-  def current_board(board)
+  def update_board(board)
+    input = gets.chomp
+    input_int = input.to_i
+    board[0] = 'X' if input_int == 1
+    board[1] = 'X' if input_int == 2
+    board[2] = 'X' if input_int == 3
+    board[3] = 'X' if input_int == 4
+    board[4] = 'X' if input_int == 5
+    board[5] = 'X' if input_int == 6
+    board[6] = 'X' if input_int == 7
+    board[7] = 'X' if input_int == 8
+    board[8] = 'X' if input_int == 9
     display_board(board)
   end
 end
