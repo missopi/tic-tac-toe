@@ -32,6 +32,16 @@ class Board
     @board = board
   end
 
+  def self.initial_board
+    puts ' '
+    puts ' 1 | 2 | 3 '
+    puts '___________'
+    puts ' 4 | 5 | 6 '
+    puts '___________'
+    puts ' 7 | 8 | 9 '
+    puts ' '
+  end
+
   def self.display_board
     board = Array.new(9, ' ')
     puts "#{board[0]} | #{board[1]} | #{board[2]}"
