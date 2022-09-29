@@ -8,6 +8,15 @@ class Player
     @name = name
     @token = token
   end
+
+  def self.name
+    puts 'Please enter your name'
+    @name = gets.chomp
+  end
+
+  def token_attributed(token)
+    "#{player}, you will be playing as #{token}."
+  end
 end
 
 # class for designing the tic tac toe board
