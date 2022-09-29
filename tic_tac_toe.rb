@@ -47,7 +47,7 @@ Board.display_board
 # tic tac toe game
 class Game
   def move(board, index, token)
-    board[index] = token if position_taken == false
+    board[index] = token if valid_move(board, index)
     display_board
   end
 
