@@ -74,7 +74,7 @@ class Game < Board
     counter
   end
 
-  def current_player
+  def current_player(board)
     (turn_count % 2).zero ? 'X' : 'O'
   end
 
@@ -82,16 +82,17 @@ class Game < Board
     user_input.to_i - 1
   end
 
-  def move(board, index, token)
-    puts "#{name}, please make your choice of move from 1-9"
-    input_to_index
-    if valid_move(board, index)
-      board[index] = token
-      display_board
-      turn_count
+  def move(board)
+    puts 'Please make your choice of move from 1-9'
+    user_input = gets.chomp
+    index = input_to_index(user_input)
+    if valid_move?(board, index)
+      move(board, index, current_player(board))
+      turn(board)
     else
       puts 'Please choose a valid number as your move'
     end
+    display_board(board)
   end
 
   def win?(board)
