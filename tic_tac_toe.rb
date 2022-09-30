@@ -13,7 +13,12 @@ class Player
     @token = token
   end
 
-  def self.create_player(token)
+  def assign_token(token)
+    %w[X O].sample
+    token
+  end
+
+  def create_player(token)
     puts 'Please enter your name'
     name = gets.chomp
     puts "#{name.capitalize!}, you will be playing as #{token}."
@@ -114,7 +119,7 @@ class Game < Board
   def play
     move until over == true
     if win == true
-      puts "Congratulations #{player}"
+      puts "Congratulations #{name}"
     else
       puts "It's a draw"
     end
