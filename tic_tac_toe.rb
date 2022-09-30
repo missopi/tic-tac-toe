@@ -21,14 +21,12 @@ class Player
   end
 end
 
-Player.create_player('X')
-Player.create_player('O')
-
 # class for designing the tic tac toe board
-class Board
+class Board < Player
   attr_accessor :board
 
-  def initialize(board)
+  def initialize(name, token, board)
+    super(name, token)
     @board = board
   end
 
@@ -55,7 +53,11 @@ end
 Board.initial_board
 
 # tic tac toe game
-class Game
+class Game < Board
+  def initialize
+    super(name, token, board)
+  end
+
   def position_taken?(board, index)
     return false if board[index] == '' || board[index] == ' ' || board[index] == nil?
   end
