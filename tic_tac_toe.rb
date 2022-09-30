@@ -105,14 +105,16 @@ class Game < Board
   end
 
   def full?(board)
-    board.all? { |i| i.include?('X', 'O') }
+    board.all? { |index| index.include?('X', 'O') }
   end
 
   def draw?(board)
     return true if !win?(board) && full?(board)
   end
 
-  def over?(board) end
+  def over?(board)
+    return true if win?(board) || draw?(board) || full?(board)
+  end
 
   def winner(name, board)
     if win?(board)
