@@ -114,14 +114,15 @@ class Game < Board
 
   def over?(board) end
 
-  def winner(board) end
-
-  def play(name, board)
-    move(board) until over?(board)
+  def winner(name, board)
     if win?(board)
       puts "Congratulations #{name}"
     elsif draw?(board)
       puts "It's a draw"
     end
+  end
+
+  def play(board)
+    move(board) until over?(board)
   end
 end
