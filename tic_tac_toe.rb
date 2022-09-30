@@ -59,6 +59,7 @@ class Game
   def move(board, index, token)
     board[index] = token if valid_move(board, index)
     display_board
+    turn_count
   end
 
   def position_taken?(board, index)
@@ -69,7 +70,9 @@ class Game
     return true if !position_taken?(board, index) && index.between?(0, 8)
   end
 
-  def turn_count(board) end
+  def turn_count
+    turn_count + 1
+  end
 
   def current_player
     (turn_count % 2).zero ? 'X' : 'O'
