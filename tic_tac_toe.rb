@@ -71,7 +71,9 @@ class Game
 
   def turn_count(board) end
 
-  def current_player() end
+  def current_player
+    (turn_count % 2).zero ? 'X' : 'O'
+  end
 
   def turn
     puts "#{name}, please make your choice of move from 1-9"
