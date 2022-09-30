@@ -57,9 +57,14 @@ Board.initial_board
 # tic tac toe game
 class Game
   def move(board, index, token)
-    board[index] = token if valid_move(board, index)
-    display_board
-    turn_count
+    input_to_index
+    if valid_move(board, index)
+      board[index] = token
+      display_board
+      turn_count
+    else
+      puts 'Please choose a valid number as your move'
+    end
   end
 
   def position_taken?(board, index)
@@ -78,15 +83,10 @@ class Game
     (turn_count % 2).zero ? 'X' : 'O'
   end
 
-  def turn
+  def input_to_index
     puts "#{name}, please make your choice of move from 1-9"
     input = gets.chomp.to_i
-    if (input - 1) == valid_move(index)
-      move
-      display_board
-    else
-      puts 'Please choose a valid number as your move'
-    end
+    input - 1
   end
 
   def win?(board)
