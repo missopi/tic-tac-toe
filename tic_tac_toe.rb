@@ -4,7 +4,7 @@ puts ' '
 puts 'Welcome to Tic Tac Toe!'
 puts ' '
 
-# class for assigning the players
+# class for assigning the players and tokens
 class Player
   attr_reader :name, :token
 
@@ -26,7 +26,7 @@ class Player
   end
 end
 
-# class for designing the tic tac toe board
+# class for designing and displaying the tic tac toe board
 class Board < Player
   attr_accessor :board
 
@@ -55,9 +55,7 @@ class Board < Player
   end
 end
 
-Board.initial_board
-
-# tic tac toe game
+# class for playing the tic tac toe game
 class Game < Board
   def initialize
     super(name, token, board)
@@ -71,7 +69,7 @@ class Game < Board
     return true if !position_taken?(board, index) && index.between?(0, 8)
   end
 
-  def turn_count
+  def turn_count(board)
     counter = 0
     board.each do |index|
       counter += 1 if index.include? %w[X O]
