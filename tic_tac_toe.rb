@@ -105,7 +105,7 @@ class Game < Board
   end
 
   def full?(board)
-    return true if board[index].any? == 'X' || board[index].any? == 'O'
+    return true if board.all? { |i| i.include?('X', 'O') }
   end
 
   def draw?(board)
