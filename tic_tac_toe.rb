@@ -83,7 +83,7 @@ class Game
     input = gets.chomp.to_i
     if (input - 1) == valid_move(index)
       move
-      update_board
+      display_board
     else
       puts 'Please choose a valid number as your move'
     end
