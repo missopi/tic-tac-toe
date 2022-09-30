@@ -57,6 +57,7 @@ end
 
 # class for playing the tic tac toe game
 class Game < Board
+  WIN_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]].freeze
   def initialize
     super(name, token, board)
   end
@@ -99,7 +100,16 @@ class Game < Board
   end
 
   def win?(board)
-    [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]] # winning combos
+    WIN_COMBOS.each do |win_combo|
+      win_one = win_combo[0]
+      win_two = win_combo[1]
+      win_three = win_combo[2]
+      win_four = win_combo[3]
+      win_five = win_combo[4]
+      win_six = win_combo[5]
+      win_seven = win_combo[6]
+      win_eight = win_combo[7]
+    end
   end
 
   def full?(board)
