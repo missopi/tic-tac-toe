@@ -52,7 +52,7 @@ class Board
   end
 end
 
-Board.display_board
+Board.initial_board
 
 # tic tac toe game
 class Game
@@ -84,7 +84,7 @@ class Game
     end
   end
 
-  def win?
+  def win?(board)
     [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]] # winning combos
   end
 
@@ -92,7 +92,9 @@ class Game
     return true if board[index].any? == 'X' || board[index].any? == 'O'
   end
 
-  def draw?(board) end
+  def draw?(board)
+    return true unless win?(board)
+  end
 
   def over?(board) end
 
