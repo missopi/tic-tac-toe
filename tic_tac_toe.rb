@@ -66,8 +66,8 @@ class Game
 
   def turn_count
     counter = 0
-    board.each do |spaces|
-      counter += 1 if spaces.include? %w[X O]
+    board.each do |index|
+      counter += 1 if index.include? %w[X O]
     end
     counter
   end
