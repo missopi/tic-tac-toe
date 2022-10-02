@@ -73,7 +73,7 @@ class Game
   end
 
   def current_player
-    (turn_count % 2).zero ? turn(@player.player_one, 'X') : turn(@player.player_one, 'O')
+    (turn_count % 2).zero ? turn(@players.player_one, 'X') : turn(@players.player_one, 'O')
   end
 
   def input_to_index(user_input)
