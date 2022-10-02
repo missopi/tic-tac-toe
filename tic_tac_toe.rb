@@ -21,11 +21,10 @@ class Player
 end
 
 # class for designing and displaying the tic tac toe board
-class Board < Player
+class Board
   attr_accessor :board
 
-  def initialize(name, token, board)
-    super(name, token)
+  def initialize
     @board = board
   end
 
