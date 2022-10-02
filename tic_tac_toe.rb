@@ -6,22 +6,16 @@ puts ' '
 
 # class for assigning the players and tokens
 class Player
-  attr_reader :name, :token
+  attr_reader :player_one, :player_two
 
-  def initialize(name, token)
-    @name = name
-    @token = token
-  end
-
-  def assign_token(token)
-    %w[X O].sample
-    token
-  end
-
-  def create_player(token)
-    puts 'Please enter your name'
-    name = gets.chomp
-    puts "#{name.capitalize!}, you will be playing as #{token}."
+  def initialize
+    puts 'Player One, please enter your name'
+    @player_one = gets.chomp
+    puts "#{player_one.capitalize!}, you will be playing as X."
+    puts ' '
+    puts 'Player Two, please enter your name'
+    @player_two = gets.chomp
+    puts "#{player_two.capitalize!}, you will be playing as O."
     puts ' '
   end
 end
@@ -101,14 +95,14 @@ class Game < Board
 
   def win?(board)
     WIN_COMBOS.each do |win_combo|
-      win_one = win_combo[0]
-      win_two = win_combo[1]
-      win_three = win_combo[2]
-      win_four = win_combo[3]
-      win_five = win_combo[4]
-      win_six = win_combo[5]
-      win_seven = win_combo[6]
-      win_eight = win_combo[7]
+      win_combo[0]
+      win_combo[1]
+      win_combo[2]
+      win_combo[3]
+      win_combo[4]
+      win_combo[5]
+      win_combo[6]
+      win_combo[7]
     end
   end
 
