@@ -72,8 +72,8 @@ class Game
     counter
   end
 
-  def current_player(board)
-    (turn_count % 2).zero ? 'X' : 'O'
+  def current_player
+    (turn_count % 2).zero ? turn(@player.player_one, 'X') : turn(@player.player_one, 'O')
   end
 
   def input_to_index(user_input)
@@ -97,7 +97,7 @@ class Game
     over? false
     @board = Board.new
     turn
-    current_player(board) while turn_count(board) < 10
+    current_player while turn_count(board) < 10
   end
 
   def win?(board)
