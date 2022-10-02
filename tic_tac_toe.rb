@@ -36,7 +36,7 @@ class Board
     @board = Array.new(9, ' ')
   end
 
-  def update_board(board, index, token)
+  def update_board(index, token)
     board[index] = token
     display_board(board)
   end
@@ -81,17 +81,24 @@ class Game
     user_input.to_i - 1
   end
 
-  def move(board)
-    puts 'Please make your choice of move from 1-9'
-    user_input = gets.chomp
-    index = input_to_index(user_input)
-    if valid_move?(board, index)
-      move(board, index, current_player(board))
-      turn(board)
+  def turn(player, token)
+    puts "#{player}, please make your choice of move from 1-9"
+    @player_choice = gets.chomp.to_i
+    if valid_move?(board, index) && over? == false
+      @board.update_board(@player_choice, token)
+      turn_count(board)
+      win?
+      draw?
     else
       puts 'Please choose a valid number as your move'
     end
-    display_board(board)
+  end
+
+  def move(board)
+    over? false
+    @board = Board.new
+    turn
+    current_player(board) while turn_count(board) < 10
   end
 
   def win?(board)
@@ -108,7 +115,7 @@ class Game
   end
 
   def full?(board)
-    board.all? { |index| index.include?('X', 'O') }
+    return true if board.all? { |index| index.include?('X', 'O') }
   end
 
   def draw?(board)
