@@ -125,9 +125,9 @@ class Game
     return true if win?(board) || draw?(board) || full?(board)
   end
 
-  def winner(name, board)
+  def winner(player, board)
     if win?(board)
-      puts "Congratulations #{name}"
+      puts "Congratulations #{player}"
     elsif draw?(board)
       puts "It's a draw"
     end
