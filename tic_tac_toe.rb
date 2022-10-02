@@ -49,7 +49,7 @@ class Board
 end
 
 # class for playing the tic tac toe game
-class Game < Board
+class Game
   WIN_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]].freeze
   def initialize
     super(name, token, board)
