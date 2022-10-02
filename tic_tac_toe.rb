@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-puts ' '
-puts 'Welcome to Tic Tac Toe!'
-puts ' '
-
 # class for assigning the players and tokens
 class Player
   attr_reader :player_one, :player_two
@@ -54,6 +50,9 @@ end
 class Game
   WIN_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]].freeze
   def initialize
+    puts ' '
+    puts 'Welcome to Tic Tac Toe!'
+    puts ' '
     @players = Player.new
   end
 
