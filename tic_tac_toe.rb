@@ -56,12 +56,12 @@ class Game
     @players = Player.new
   end
 
-  def position_taken?(board, index)
-    return false if board[index] == '' || board[index] == ' ' || board[index] == nil?
+  def position_taken?(board)
+    return false if board[@player_choice] == '' || board[@player_choice] == ' ' || board[@player_choice] == nil?
   end
 
-  def valid_move(board, index)
-    return true if !position_taken?(board, index) && index.between?(0, 8)
+  def valid_move(board)
+    return true if !position_taken?(board) && @player_choice.between?(0, 8)
   end
 
   def turn_count(board)
@@ -76,13 +76,9 @@ class Game
     (turn_count % 2).zero ? turn(@players.player_one, 'X') : turn(@players.player_one, 'O')
   end
 
-  def input_to_index(user_input)
-    user_input.to_i - 1
-  end
-
   def turn(player, token)
     puts "#{player}, please make your choice of move from 1-9"
-    @player_choice = gets.chomp.to_i
+    @player_choice = gets.chomp.to_i - 1
     if valid_move?(board, index) && over? == false
       @board.update_board(@player_choice, token)
       turn_count(board)
