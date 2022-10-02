@@ -22,13 +22,9 @@ end
 
 # class for designing and displaying the tic tac toe board
 class Board
-  attr_accessor :board
+  attr_reader :board
 
   def initialize
-    @board = board
-  end
-
-  def self.initial_board
     puts ' '
     puts ' 1 | 2 | 3 '
     puts '___________'
@@ -36,10 +32,15 @@ class Board
     puts '___________'
     puts ' 7 | 8 | 9 '
     puts ' '
+    @board = Array.new(9, ' ')
   end
 
-  def self.display_board
-    board = Array.new(9, ' ')
+  def update_board(board, index, token)
+    board[index] = token
+    display_board(board)
+  end
+
+  def display_board(board)
     puts "#{board[0]} | #{board[1]} | #{board[2]}"
     puts '_________'
     puts "#{board[3]} | #{board[4]} | #{board[5]}"
