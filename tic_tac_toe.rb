@@ -137,3 +137,6 @@ class Game
     move(board) until over?(board)
   end
 end
+
+tic_tac_toe = Game.new
+tic_tac_toe.move
