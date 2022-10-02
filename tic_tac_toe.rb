@@ -25,6 +25,7 @@ class Board
   attr_reader :board
 
   def initialize
+    puts 'Take turns choosing a number to put your marks in the spaces.  The first player to get 3 marks in a row wins.'
     puts ' '
     puts ' 1 | 2 | 3 '
     puts '___________'
