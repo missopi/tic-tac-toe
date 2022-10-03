@@ -65,14 +65,14 @@ class Game
   end
 
   def current_player
-    (turn_count % 2).zero ? turn(@players.player_one, 'X') : turn(@players.player_one, 'O')
+    @turn.even? ? player_turn(@players.player_one, 'X') : player_turn(@players.player_two, 'O')
   end
 
   def move
-    over? false
+    over?
     @board = Board.new
     @turn = 1
-    current_player while turn_count(board) < 10
+    current_player while @turn < 10
   end
 
   def player_turn(player, token)
