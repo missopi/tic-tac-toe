@@ -38,11 +38,13 @@ class Board
   end
 
   def display_board(board)
+    puts ' '
     puts "#{board[0]} | #{board[1]} | #{board[2]}"
     puts '_________'
     puts "#{board[3]} | #{board[4]} | #{board[5]}"
     puts '_________'
     puts "#{board[6]} | #{board[7]} | #{board[8]}"
+    puts ' '
   end
 end
 
@@ -84,7 +86,7 @@ class Game
       win?
       draw?
     else
-      puts 'Please choose a valid number as your move'
+      puts 'You must choose a valid number as your move'
     end
   end
 
@@ -122,7 +124,7 @@ class Game
   end
 
   def play(board)
-    move(board) until over?(board)
+    move until over?(board)
   end
 end
 
