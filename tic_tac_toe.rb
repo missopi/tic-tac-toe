@@ -64,14 +64,6 @@ class Game
     return true if !position_taken?(board) && @player_choice.between?(0, 8)
   end
 
-  def turn_count(board)
-    counter = 0
-    board.each do |index|
-      counter += 1 if index.include? %w[X O]
-    end
-    counter
-  end
-
   def current_player
     (turn_count % 2).zero ? turn(@players.player_one, 'X') : turn(@players.player_one, 'O')
   end
@@ -84,11 +76,11 @@ class Game
   end
 
   def player_turn(player, token)
-    puts "#{player}, please make your choice of move from 1-9"
+    puts "#{player}, please put your #{token} in a space from 1-9"
     @player_choice = gets.chomp.to_i - 1
     if valid_move?(board, index) && over? == false
       @board.update_board(@player_choice, token)
-      turn_count(board)
+      @turn += 1
       win?
       draw?
     else
