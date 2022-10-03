@@ -59,11 +59,11 @@ class Game
   end
 
   def position_taken?
-    return false if @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
+    return true if @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
   end
 
   def valid_move
-    return true if !position_taken? && @player_choice.between?(0, 8)
+    return true if position_taken? && @player_choice.between?(0, 8)
   end
 
   def current_player
