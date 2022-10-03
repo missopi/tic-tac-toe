@@ -76,6 +76,13 @@ class Game
     (turn_count % 2).zero ? turn(@players.player_one, 'X') : turn(@players.player_one, 'O')
   end
 
+  def move
+    over? false
+    @board = Board.new
+    turn
+    current_player while turn_count(board) < 10
+  end
+
   def turn(player, token)
     puts "#{player}, please make your choice of move from 1-9"
     @player_choice = gets.chomp.to_i - 1
@@ -87,13 +94,6 @@ class Game
     else
       puts 'Please choose a valid number as your move'
     end
-  end
-
-  def move(board)
-    over? false
-    @board = Board.new
-    turn
-    current_player while turn_count(board) < 10
   end
 
   def win?(board)
