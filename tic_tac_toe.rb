@@ -79,11 +79,11 @@ class Game
   def move
     over? false
     @board = Board.new
-    turn
+    @turn = 1
     current_player while turn_count(board) < 10
   end
 
-  def turn(player, token)
+  def player_turn(player, token)
     puts "#{player}, please make your choice of move from 1-9"
     @player_choice = gets.chomp.to_i - 1
     if valid_move?(board, index) && over? == false
