@@ -96,18 +96,17 @@ class Game
 
   def win
     WIN_COMBOS.each do |line| # check if line has all three tokens the same
-      if (@board.board[line[0]] == @board.board[line[1]] && 
-        @board.board[line[1]] == @board.board[line[2]]) &&
-        @board.board[line[0]] != ' '
+      if (@board.board[line[0]] == @board.board[line[1]] &&
+          @board.board[line[1]] == @board.board[line[2]]) &&
+         @board.board[line[0]] != ' '
         if @board.board[line[0]] == 'X'
           puts "CONGRATULATIONS #{@player_one.name}! YOU WIN!"
-          @turn = 10
-          @win = true
         elsif @board.board[line[0]] == 'O'
           puts "CONGRATULATIONS #{@player_two.name}! YOU WIN!"
-          @turn = 10
-          @win = true
         end
+        @turn = 10
+        @win = true
+      end
     end
   end
 
