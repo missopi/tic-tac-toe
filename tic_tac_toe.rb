@@ -57,12 +57,12 @@ class Game
     puts ' '
   end
 
-  def space_not_taken
+  def space_not_taken?
     return true if @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
   end
 
-  def valid_move
-    return true if space_not_taken && @player_choice.between?(0, 8)
+  def valid_move?
+    return true if space_not_taken? && @player_choice.between?(0, 8)
   end
 
   def current_player
@@ -79,7 +79,7 @@ class Game
   def player_turn(player, token)
     puts "#{player}, please put your #{token} in a space from 1-9"
     @player_choice = gets.chomp.to_i - 1
-    if valid_move == true
+    if valid_move? == true
       @board.update_board(@player_choice, token)
       @turn += 1
       win
