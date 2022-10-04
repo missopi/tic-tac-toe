@@ -71,7 +71,7 @@ class Game
   end
 
   def move
-    over?
+    over?(board)
     @board = Board.new
     @turn = 1
     current_player while @turn < 10
@@ -83,8 +83,8 @@ class Game
     if valid_move == true
       @board.update_board(@player_choice, token)
       @turn += 1
-      win?
-      draw?
+      win?(board)
+      draw?(board)
     else
       puts 'You must choose a valid number as your move'
     end
@@ -107,8 +107,8 @@ class Game
     return true if board.all? { |index| index.include?('X', 'O') }
   end
 
-  def draw?(board)
-    return true if !win?(board) && full?(board)
+  def draw?
+    puts "It's a draw" if @turn == 10
   end
 
   def over?(board)
@@ -116,11 +116,7 @@ class Game
   end
 
   def winner(player, board)
-    if win?(board)
-      puts "Congratulations #{player}"
-    elsif draw?(board)
-      puts "It's a draw"
-    end
+    puts "Congratulations #{player}" if win?(board)
   end
 
   def play(board)
