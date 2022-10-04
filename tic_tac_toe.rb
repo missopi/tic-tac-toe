@@ -2,17 +2,11 @@
 
 # class for assigning the players and tokens
 class Player
-  attr_reader :player_one, :player_two
+  attr_reader :name
 
   def initialize
-    puts 'Player One, please enter your name'
-    @player_one = gets.chomp
-    puts "#{player_one.capitalize!}, you will be playing as X."
-    puts ' '
-    puts 'Player Two, please enter your name'
-    @player_two = gets.chomp
-    puts "#{player_two.capitalize!}, you will be playing as O."
-    puts ' '
+    puts 'Please enter your name.'
+    @name = gets.chomp.capitalize!
   end
 end
 
@@ -55,7 +49,12 @@ class Game
     puts ' '
     puts 'Welcome to Tic Tac Toe!'
     puts ' '
-    @players = Player.new
+    @player_one = Player.new
+    puts "#{@player_one.name}, you will be playing as X."
+    puts ' '
+    @player_two = Player.new
+    puts "#{@player_two.name}, you will be playing as O."
+    puts ' '
   end
 
   def space_not_taken
@@ -67,7 +66,7 @@ class Game
   end
 
   def current_player
-    @turn.odd? ? player_turn(@players.player_one, 'X') : player_turn(@players.player_two, 'O')
+    @turn.odd? ? player_turn(@player_one, 'X') : player_turn(@player_two, 'O')
   end
 
   def move
@@ -90,17 +89,10 @@ class Game
     end
   end
 
-  def win?(board)
+  def win?
     WIN_COMBOS.each do |win_combo|
-      win_combo[0]
-      win_combo[1]
-      win_combo[2]
-      win_combo[3]
-      win_combo[4]
-      win_combo[5]
-      win_combo[6]
-      win_combo[7]
     end
+    @win == true
   end
 
   def draw?
@@ -108,7 +100,7 @@ class Game
   end
 
   def over?(board)
-    return true if win?(board) || draw?(board) || full == true
+    return true if win?(board) || draw?(board)
   end
 
   def winner(player, board)
