@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# class for assigning the players and tokens
+# class for assigning the players
 class Player
   attr_reader :name
 
@@ -44,7 +44,12 @@ end
 
 # class for playing the tic tac toe game
 class Game
-  WIN_COMBOS = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [6, 4, 2], [0, 4, 8]].freeze
+  WIN_COMBOS = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], # horizontal
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], # vertical
+    [6, 4, 2], [0, 4, 8] # diagonal
+  ].freeze
+
   def initialize
     puts ' '
     puts 'Welcome to Tic Tac Toe!'
@@ -78,7 +83,7 @@ class Game
 
   def player_turn(player, token)
     puts "#{player}, please put your #{token} in a space from 1-9"
-    @player_choice = gets.chomp.to_i - 1
+    @player_choice = gets.to_i - 1
     if valid_move? == true
       @board.update_board(@player_choice, token)
       @turn += 1
