@@ -67,7 +67,7 @@ class Game
   end
 
   def current_player
-    @turn.even? ? player_turn(@players.player_one, 'X') : player_turn(@players.player_two, 'O')
+    @turn.odd? ? player_turn(@players.player_one, 'X') : player_turn(@players.player_two, 'O')
   end
 
   def move
