@@ -58,12 +58,12 @@ class Game
     @players = Player.new
   end
 
-  def position_taken?
-    return true if @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
+  def space_not_taken
+    return true if @board.board[@player_choice] == '' || @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
   end
 
   def valid_move
-    return true if position_taken? && @player_choice.between?(0, 8)
+    return true if space_not_taken && @player_choice.between?(0, 8)
   end
 
   def current_player
