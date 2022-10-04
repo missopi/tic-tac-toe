@@ -52,7 +52,7 @@ class Game
 
   def initialize
     puts ' '
-    puts 'Welcome to Tic Tac Toe!'
+    puts '====== TIC TAC TOE ======'
     puts ' '
     @player_one = Player.new
     puts "#{@player_one.name}, you will be playing as X."
@@ -95,9 +95,10 @@ class Game
   end
 
   def win
-    WIN_COMBOS.each do |win_combo|
+    WIN_COMBOS.each do |win_combo| # check if line has all three tokens the same
+      if @board.board[[win_combo[0]] == @board.board[win_combo[1]] && @board.board[win_combo[1]] == @board.board[win_combo[2]] && @board.board[win_combo[0]] != ' '
+      end
     end
-    @win == true
   end
 
   def draw
