@@ -103,10 +103,6 @@ class Game
     return true if win?(board) || draw?(board)
   end
 
-  def winner(player, board)
-    puts "Congratulations #{player}" if win?(board)
-  end
-
   def play(board)
     move until over?(board)
   end
