@@ -70,11 +70,10 @@ class Game
   end
 
   def move
-    over?(board)
+    over?
     @board = Board.new
     @turn = 1
     current_player while @turn < 10
-    draw?
   end
 
   def player_turn(player, token)
@@ -83,28 +82,29 @@ class Game
     if valid_move == true
       @board.update_board(@player_choice, token)
       @turn += 1
-      win?(board)
+      win
+      draw
     else
       puts 'You must choose a valid number as your move'
     end
   end
 
-  def win?
+  def win
     WIN_COMBOS.each do |win_combo|
     end
     @win == true
   end
 
-  def draw?
-    puts "It's a draw" if @turn == 10 && @win == false
+  def draw
+    puts "It's a draw" if @turn == 10 && !@win
   end
 
-  def over?(board)
-    return true if win?(board) || draw?(board)
+  def over?
+    return true if win || draw
   end
 
-  def play(board)
-    move until over?(board)
+  def play
+    move until over?
   end
 end
 
