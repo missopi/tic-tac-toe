@@ -59,7 +59,7 @@ class Game
   end
 
   def space_not_taken
-    return true if @board.board[@player_choice] == '' || @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
+    return true if @board.board[@player_choice] == ' ' || @board.board[@player_choice] == nil?
   end
 
   def valid_move
