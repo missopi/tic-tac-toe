@@ -95,9 +95,10 @@ class Game
   end
 
   def win
-    WIN_COMBOS.each do |win_combo| # check if line has all three tokens the same
-      if @board.board[[win_combo[0]] == @board.board[win_combo[1]] && @board.board[win_combo[1]] == @board.board[win_combo[2]] && @board.board[win_combo[0]] != ' '
-      end
+    WIN_COMBOS.each do |line| # check if line has all three tokens the same
+      if (@board.board[line[0]] == @board.board[line[1]] && 
+        @board.board[line[1]] == @board.board[line[2]]) &&
+        @board.board[line[0]] != ' '
     end
   end
 
