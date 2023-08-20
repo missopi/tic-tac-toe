@@ -124,5 +124,5 @@ class Game
   end
 end
 
-tic_tac_toe = Game.new
-tic_tac_toe.move
+# tic_tac_toe = Game.new
+# tic_tac_toe.move

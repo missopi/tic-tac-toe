@@ -35,13 +35,13 @@ describe Game do
   describe '#player_turn' do
   end
 
-  descibe '#win' do
+  describe '#win' do
   end
 
   describe '#winner' do
   end
 
-  descibe '#draw' do
+  describe '#draw' do
   end
 
   describe 'over' do
