@@ -115,7 +115,7 @@ class Game
     puts "It's a draw" if @turn == 10 && !@win
   end
 
-  def over
+  def over?
     win || draw
   end
 
