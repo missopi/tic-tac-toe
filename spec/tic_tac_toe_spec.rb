@@ -16,7 +16,7 @@ describe Board do
       end
 
       it 'is an empty board' do
-        board_cells = new_board.board.flatten
+        board_cells = new_board.board
         expect(board_cells).to all(be_empty)
       end
     end
