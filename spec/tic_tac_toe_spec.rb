@@ -8,25 +8,29 @@ end
 
 describe Board do
   describe '#initialize' do
-    # No tests necessary
+    subject(:new_board) { described_class.new }
+
+    context "when a new board is created" do
+      matcher :be_empty do
+        match { |cell| cell == ' ' }
+      end
+
+      it 'is an empty board' do
+        board_cells = new_board.board.flatten
+        expect(board_cells).to all(be_empty)
+      end
+    end
   end
 
   describe '#update_board' do
-    subject(:board) { described_class.new }
+    subject(:update_board_game) { described_class.new }
 
     context "when player one makes a selection" do
-      before do
-      end
-
-      xit "updates the board with an 'X' token" do
-      end
-    end
-
-    context "when player two makes a selection" do
-      before do
-      end
-
-      xit "updates the board with an 'O' token" do
+      it "updates the board with a token" do
+        index = 4
+        token = 'X'
+        update_board_game.update_board(index, token)
+        expect(update_board_game.board[4]).to eq('X')
       end
     end
   end
@@ -111,14 +115,19 @@ describe Game do
 
     context "when the turn number is odd" do
       before do
+        move_turn = 3
+       
       end
 
       xit "current player is 'X'" do
+        expect(current_player).to eq('X')
       end
     end
 
     context "when the turn number is even" do
       before do
+        move_turn = 6
+        
       end
 
       xit "current player is 'O'" do
@@ -164,6 +173,16 @@ describe Game do
 
   describe '#winner' do
     subject(:game_winner) { described_class.new }
+
+    context "when 'X' wins" do
+      xit "player one is congratulated" do
+      end
+    end
+
+    context "when 'O' wins" do
+      xit "player two is congratulated" do
+      end
+    end
   end
 
   describe '#draw' do
