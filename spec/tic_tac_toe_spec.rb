@@ -25,7 +25,7 @@ describe Board do
   describe '#update_board' do
     subject(:update_board_game) { described_class.new }
 
-    context "when player one makes a selection" do
+    context "when a player makes a selection" do
       it "updates the board with a token" do
         index = 4
         token = 'X'
